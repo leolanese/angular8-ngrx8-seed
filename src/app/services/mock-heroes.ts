@@ -1,4 +1,4 @@
-import { Hero } from './models/hero.model';
+import { Hero } from './../models/hero.model';
 
 export const HEROES: Hero[] = [
   { id: 11, name: 'Mr. Nice' },
@@ -13,9 +13,3 @@ export const HEROES: Hero[] = [
   { id: 20, name: 'Tornado' }
 ];
 
-
-/*
-Copyright 2017-2018 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/

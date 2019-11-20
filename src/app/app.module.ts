@@ -29,7 +29,7 @@ import { HeroService } from './services/hero.service'
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
-    StoreModule.forRoot(HEROES_FEATURE_NAME, reducers)
+    StoreModule.forRoot({}),
   ],
   declarations: [
     AppComponent,
