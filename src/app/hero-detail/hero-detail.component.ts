@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 
 import { Hero }         from '../models/hero.model';
 import { HeroService }  from '../services/hero.service';
+import {Observable, Subscriber} from "rxjs";
+
 
 @Component({
   selector: 'app-hero-detail',
@@ -11,7 +13,12 @@ import { HeroService }  from '../services/hero.service';
   styleUrls: [ './hero-detail.component.css' ]
 })
 export class HeroDetailComponent implements OnInit {
-  @Input() hero: Hero;
+  @Input()
+  hero: Hero[];
+
+  id: number;
+
+  heroes$: Observable<Hero[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,18 +31,31 @@ export class HeroDetailComponent implements OnInit {
   }
 
   getHero(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+    this.id = +this.route.snapshot.paramMap.get('id');
+    if (Number.isInteger(this.id)) {
+      this.heroService.getHero(this.id)
+          .subscribe(hero => this.hero = hero);
+    } else {
+      this.heroService.getHeroes()
+          .subscribe(hero => this.hero = hero);
+    }
   }
 
-  goBack(): void {
+  onGoBack(): void {
     this.location.back();
   }
 
- save(): void {
+  onSave(): void {
     this.heroService.updateHero(this.hero)
-      .subscribe(() => this.goBack());
+      .subscribe(() => this.onGoBack());
+  }
+
+  onReplaceAll() {
+    console.log(this.hero)
+   this.hero.map(a => ({ ...a, status:"online"}));
+       console.log(this.hero);
+       this.heroService.updateAllElements(this.hero)
+         .subscribe(() => this.onGoBack());
   }
 }
 

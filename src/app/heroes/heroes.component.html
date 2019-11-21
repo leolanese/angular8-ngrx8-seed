@@ -3,26 +3,56 @@
   <div class="panel panel-default">
 
     <div class="panel-body wrapper-panel">
-      <div>
-        <label>Hero name:
+
+      <div class="panel-body">
+        <label>Add New User:<br/>
           <input #heroName />
         </label>
-        <!-- (click) passes input value to add() and then clears the input -->
-        <button (click)="add(heroName.value); heroName.value=''">
-          add
+        <button (click)="onAdd(heroName.value); heroName.value=''">
+          Add
         </button>
+
+        <hr>
+
+        <button (click)="onEditAll(heroName.value); heroName.value=''">
+          Edit All
+        </button>
+        <button (click)="onDeleteAll(); heroName.value=''">
+          Delete All
+        </button>
+
+
       </div>
-      <div class="text-center">
-        <ul>
-          <li *ngFor="let hero of heroes">
-            <a routerLink="/detail/{{hero.id}}">
-              <span class="badge">{{hero.id}}</span> {{hero.name}}
-            </a>
-            <button class="delete" title="delete hero"
-                    (click)="delete(hero)">x</button>
-          </li>
-        </ul>
+
+      <div class="panel-body  wrapper-inner">
+          <div class="text-center">
+          <ul>
+            <li class="wrapper-name input">
+              <label>
+                <input #heroName />
+              </label>
+              <div class="wrapper-buttons">
+                <button class="btn save" (click)="onAdd(heroName.value); heroName.value=''">
+                Save
+                </button>
+              </div>
+            </li>
+            <li class="wrapper-name" *ngFor="let hero of heroes">
+              <a routerLink="/detail/{{hero.id}}">
+                <span class="badge">{{hero.name}}</span>
+              </a>
+              <div class="wrapper-buttons">
+                <button class="btn edit" title="edit element" (click)="onEdit(hero)">Edit</button>
+
+                <button class="btn delete" title="edit element" (click)="onDelete(hero)">Delete</button>
+              </div>
+
+            </li>
+          </ul>
+        </div>
       </div>
+
+
     </div>
 
   </div>

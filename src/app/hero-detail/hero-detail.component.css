@@ -18,7 +18,9 @@ button {
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
-  cursor: pointer; cursor: hand;
+  cursor: pointer;
+  cursor: hand;
+  margin-right: 15px;
 }
 button:hover {
   background-color: #cfd8dc;

@@ -7,7 +7,6 @@ export class ActionTypes {
   static readonly LOAD = type('[Heroes] Load');
   static readonly LOAD_COMPLETED = type('[Heroes] Load Completed');
   static readonly LOAD_FAILED = type('[Heroes] Load Failed');
-  
 }
 
 export class LoadAction implements Action {

@@ -62,6 +62,10 @@ export class HeroService {
     );
   }
 
+
+
+
+
   /* GET heroes whose name contains search term */
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {
@@ -102,6 +106,25 @@ export class HeroService {
       catchError(this.handleError<any>('updateHero'))
     );
   }
+
+
+  updateAllElements(hero: Hero): Observable<Hero> {
+
+    const reformattedArray = [...hero].map((obj) => {
+      var rObj = {};
+      console.log(obj.name +' - '+ obj.value); // choose your poison!
+      rObj[obj.name] = obj.value;
+      return rObj;
+    });
+
+    return this.http.put(this.heroesUrl, reformattedArray, httpOptions).pipe(
+        tap(_ => this.log(`updated hero id=${hero.id}`)),
+        catchError(this.handleError<any>('updateHero'))
+    );
+
+
+  }
+
 
   /**
    * Handle Http operation that failed.
