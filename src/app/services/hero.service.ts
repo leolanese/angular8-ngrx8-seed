@@ -14,13 +14,13 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private heroesUrl = 'api/elements';  // URL to web api
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  /** GET heroes from the server */
+  /** GET elements from the server */
   getElements(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
         .pipe(
@@ -33,7 +33,7 @@ export class HeroService {
   getHeroes (): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        tap(heroes => this.log('fetched heroes')),
+        tap(heroes => this.log('fetched elements')),
         catchError(this.handleError('getHeroes', []))
       );
   }
@@ -66,7 +66,7 @@ export class HeroService {
 
 
 
-  /* GET heroes whose name contains search term */
+  /* GET elements whose name contains search term */
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
@@ -112,7 +112,6 @@ export class HeroService {
 
     const reformattedArray = [...hero].map((obj) => {
       var rObj = {};
-      console.log(obj.name +' - '+ obj.value); // choose your poison!
       rObj[obj.name] = obj.value;
       return rObj;
     });
@@ -135,10 +134,8 @@ export class HeroService {
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
 
-      // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.

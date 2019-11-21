@@ -23,14 +23,7 @@ export class AppComponent implements OnInit {
     this.loading$ = this.store.select(heroesSelectors.FEATURE.isHeroesLoading);
     this.store.dispatch(new heroesActions.FEATURE.LoadAction());
     this.heroes$ = this.store.select(heroesSelectors.FEATURE.selectHeroes);
-    console.log(heroesSelectors.FEATURE.selectHeroes);
 
     this.heroes$.subscribe(data => {console.log(data)});
-    /*this.store.select(heroesSelectors.FEATURE.selectHeroes).subscribe(
-      data => {
-        this.heroes$ = data;
-        console.log(data);
-      }
-    );*/
   }
 }

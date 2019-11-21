@@ -51,9 +51,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   onReplaceAll() {
-    console.log(this.hero)
    this.hero.map(a => ({ ...a, status:"online"}));
-       console.log(this.hero);
        this.heroService.updateAllElements(this.hero)
          .subscribe(() => this.onGoBack());
   }

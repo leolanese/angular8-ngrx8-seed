@@ -6,11 +6,11 @@ import { HeroService } from '../services/hero.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  selector: 'app-elements',
+  templateUrl: './elements.component.html',
+  styleUrls: ['./elements.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class ElementsComponent implements OnInit {
   heroes: Hero[];
 
   constructor(private heroService: HeroService, public router: Router) { }

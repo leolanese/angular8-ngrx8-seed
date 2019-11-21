@@ -17,7 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
+import { ElementsComponent } from './elements/elements.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeaderFooterComponent } from './header-footer/header-footer.component';
 import { HeroService } from './services/hero.service';
@@ -36,7 +36,7 @@ import { HeroService } from './services/hero.service';
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeroesComponent,
+    ElementsComponent,
     HeroDetailComponent,
     HeaderFooterComponent,
     HeroSearchComponent
