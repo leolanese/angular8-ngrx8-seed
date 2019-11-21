@@ -1,11 +1,11 @@
 import * as actions from '../actions/heroes.actions';
 import { AppError } from '../../models/app-error.model';
-import { Hero } from '../../models/hero.model';
+import { Names } from '../../models/hero.model';
 
 export const HEROES_FEATURE_NAME = 'heroes';
 
 export interface State {
-  heroes: Hero[];
+  heroes: Names;
   messages: string[];
   loading: boolean;
   loaded: boolean;

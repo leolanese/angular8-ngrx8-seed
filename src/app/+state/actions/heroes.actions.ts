@@ -1,6 +1,6 @@
 import { type } from '../utils/type-cache.util';
 import { Action } from '@ngrx/store';
-import { Hero } from '../../models/hero.model';
+import { Names } from '../../models/hero.model';
 import { AppError } from '../../models/app-error.model';
 
 export class ActionTypes {
@@ -16,7 +16,8 @@ export class LoadAction implements Action {
 
 export class LoadCompletedAction implements Action {
   readonly type = ActionTypes.LOAD_COMPLETED;
-  constructor(public payload: Hero[]) {}
+
+    constructor(public payload: Names) {}
 }
 
 export class LoadFailedAction implements Action {

@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Hero }         from '../models/hero.model';
+import { Name, Names } from '../models/hero.model';
 import { HeroService }  from '../services/hero.service';
-import {Observable, Subscriber} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 
 
 @Component({
@@ -13,12 +13,16 @@ import {Observable, Subscriber} from "rxjs";
   styleUrls: [ './hero-detail.component.css' ]
 })
 export class HeroDetailComponent implements OnInit {
+
   @Input()
-  hero: Hero[];
+  hero: Subscription;
+
+  @Input()
+  heroes: Names;
 
   id: number;
 
-  heroes$: Observable<Hero[]>;
+  heroes$: Observable<Names>;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,11 +37,11 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
     if (Number.isInteger(this.id)) {
-      this.heroService.getHero(this.id)
+      this.hero = this.heroService.getHero(this.id)
           .subscribe(hero => this.hero = hero);
     } else {
-      this.heroService.getHeroes()
-          .subscribe(hero => this.hero = hero);
+      this.heroService.getNames()
+          .subscribe(hero => this.heroes = hero);
     }
   }
 
@@ -50,8 +54,8 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(() => this.onGoBack());
   }
 
-  onReplaceAll() {
-   this.hero.map(a => ({ ...a, status:"online"}));
+  onReplaceAll(): void {
+   [...this.hero].map(a => ({ ...a, status:"online"}));
        this.heroService.updateAllElements(this.hero)
          .subscribe(() => this.onGoBack());
   }

@@ -6,18 +6,18 @@
 
       <div class="panel-body">
         <label>Add New User:<br/>
-          <input #heroName />
+          <input #saveName />
         </label>
-        <button (click)="onAdd(heroName.value); heroName.value=''">
+        <button (click)="onAdd(saveName.value); saveName.value=''">
           Add
         </button>
 
         <hr>
 
-        <button (click)="onEditAll(heroName.value); heroName.value=''">
+        <button (click)="onEditAll(saveName.value); saveName.value=''">
           Edit All
         </button>
-        <button (click)="onDeleteAll(); heroName.value=''">
+        <button (click)="onDeleteAll(); saveName.value=''">
           Delete All
         </button>
 

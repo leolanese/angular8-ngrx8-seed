@@ -1,5 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Hero } from '../models/hero.model';
+import { Names } from '../models/hero.model';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
@@ -20,7 +20,7 @@ export class InMemoryDataService implements InMemoryDbService {
   // the method below returns the initial number (11).
   // if the elements array is not empty, the method below returns the highest
   // hero id + 1.
-  genId(heroes: Hero[]): number {
+  genId(heroes: Names): number {
     return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
   }
 }

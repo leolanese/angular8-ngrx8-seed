@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { State } from './+state/reducers';
 import * as heroesSelectors from './+state/selectors';
 import * as heroesActions from './+state/actions';
-import { Hero } from './models/hero.model';
+import { Names } from './models/hero.model';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   header = 'Header';
   footer = 'Footer';
   loading$: Observable<boolean>;
-  heroes$: Observable<Hero[]>;
+  heroes$: Observable<Names>;
 
   constructor(private store: Store<State>) {}
 

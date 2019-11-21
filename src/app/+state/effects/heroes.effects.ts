@@ -20,7 +20,7 @@ export class HeroesEffects {
   load$ = this.actions$.pipe(
     ofType<actions.FEATURE.LoadAction>(actions.FEATURE.ActionTypes.LOAD),
     map(action => {
-      this.heroService.getHeroes().pipe(
+      this.heroService.getNames().pipe(
         map(response => {
           return new actions.FEATURE.LoadCompletedAction(response);
         }),

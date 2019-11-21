@@ -1,36 +1,37 @@
-<div *ngIf="hero; else notShow">
-  1{{ hero | json }}
+<div *ngIf="id; else notShow">
+  1 {{ hero | json }}
 
-  <h2> Names: (Replace all the same in one go) </h2><!-- requirement -->
-  <div *ngFor="let h of hero" >
-    <p>
-      {{ h.name }}
-    </p>
-  </div>
+    <h2> Name: </h2>
+    <h2>{{hero.name | uppercase}}</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+      </label>
+    </div>
+    <button (click)="onGoBack()">Back</button>
+    <button (click)="onSave()">Save</button>
 
-  <h2>{{hero.name | uppercase}}</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
-  </div>
-  <button (click)="onGoBack()">Back</button>
-  <button (click)="onReplaceAll()">Save</button>
 </div>
 
 
 <ng-template #notShow>
+  2 {{ heroes | json }}
 
-  <h2> Name: </h2>
-  <h2>{{hero[0].name | uppercase}}</h2>
-  <div><span>id: </span>{{hero[0].id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero[0].name" placeholder="name"/>
-    </label>
-  </div>
-  <button (click)="onGoBack()">Back</button>
-  <button (click)="onSave()">Save</button>
+<!--  <h2> Names: (Replace all the same in one go) </h2>&lt;!&ndash; requirement &ndash;&gt;-->
+<!--  <div *ngFor="let h of hero" >-->
+<!--    <p>-->
+<!--      {{ h.name }}-->
+<!--    </p>-->
+<!--  </div>-->
 
+<!--  <h2>{{hero.name | uppercase}}</h2>-->
+<!--  <div><span>id: </span>{{hero.id}}</div>-->
+<!--  <div>-->
+<!--    <label>name:-->
+<!--      <input [(ngModel)]="hero.name" placeholder="name"/>-->
+<!--    </label>-->
+<!--  </div>-->
+<!--  <button (click)="onGoBack()">Back</button>-->
+<!--  <button (click)="onReplaceAll()">Save</button>-->
 </ng-template>
