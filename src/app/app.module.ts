@@ -20,7 +20,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
-import { HeroService } from './services/hero.service'
+import { HeroService } from './services/hero.service';
+
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { HeroService } from './services/hero.service'
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
     StoreModule.forRoot({}),
   ],
