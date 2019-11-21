@@ -19,7 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { MessagesComponent } from './messages/messages.component';
+import { HeaderFooterComponent } from './header-footer/header-footer.component';
 import { HeroService } from './services/hero.service';
 
 
@@ -38,7 +38,7 @@ import { HeroService } from './services/hero.service';
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MessagesComponent,
+    HeaderFooterComponent,
     HeroSearchComponent
   ],
   bootstrap: [AppComponent]
