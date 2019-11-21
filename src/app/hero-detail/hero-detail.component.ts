@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
-import { Name, Names } from '../models/hero.model';
-import { HeroService }  from '../services/hero.service';
-import {Observable, Subscription} from "rxjs";
+import {Name, Names} from '../models/hero.model';
+import {HeroService} from '../services/hero.service';
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -15,7 +15,7 @@ import {Observable, Subscription} from "rxjs";
 export class HeroDetailComponent implements OnInit {
 
   @Input()
-  hero: Subscription;
+  hero: Name;
 
   @Input()
   heroes: Names;
@@ -37,10 +37,12 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
     if (Number.isInteger(this.id)) {
-      this.hero = this.heroService.getHero(this.id)
+      const {heroService} = this;
+      heroService.getHero(this.id)
           .subscribe(hero => this.hero = hero);
     } else {
-      this.heroService.getNames()
+      const {heroService} = this;
+      heroService.getNames()
           .subscribe(hero => this.heroes = hero);
     }
   }
