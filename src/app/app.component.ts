@@ -5,7 +5,6 @@ import { State } from './+state/reducers';
 import * as heroesSelectors from './+state/selectors';
 import * as heroesActions from './+state/actions';
 import { Hero } from './models/hero.model';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +12,8 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Tour of Heroes';
+  header = 'Header';
+  footer = 'Footer';
   loading$: Observable<boolean>;
   heroes$: Observable<Hero[]>;
 

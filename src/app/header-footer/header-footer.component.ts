@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { MessageService } from '../services/message.service';
 
 @Component({
@@ -7,6 +7,12 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['./header-footer.component.css']
 })
 export class HeaderFooterComponent implements OnInit {
+
+  @Input()
+  title: string;
+
+  @Input()
+  value: any;
 
   constructor(public messageService: MessageService) {}
 
