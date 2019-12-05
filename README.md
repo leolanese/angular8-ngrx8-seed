@@ -6,7 +6,7 @@ This is an altenative ngrx8 with Angular8 seed. Other seed contain some extra de
 - ngrx8-seed: https://github.com/leolanese/ngrx8-seed
 - ATS-seed: https://github.com/leolanese/ATS-seed
 - ngrx8-angular8-seed(you are here): https://github.com/leolanese/ngrx8-angular8-seed
-- Angular8-seed: https://github.com/leolanese/ngrx8-seed
+- Angular8-seed: https://github.com/leolanese/Angular8-seed
 
 ---
 
