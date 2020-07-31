@@ -1,4 +1,4 @@
-# ngrx8-angular8-seed
+# Angular8-ngrx8-seed
 
 This is an altenative ngrx8 with Angular8 seed. Other seed contain some extra dependencies already install in the project to help to save some valuable development time.
 
